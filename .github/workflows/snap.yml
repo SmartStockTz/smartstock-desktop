@@ -31,6 +31,4 @@ jobs:
     - run: export GT=${{ secrets.GT }} && npm install -f
     - run: export PACKAGE_VERSION=${{ steps.pv.outputs.current-version }} && npm run deploy:desktop:snap
       env:
-#         PACKAGE_VERSION: ${{ steps.pv.outputs.current-version }}
-#         GT: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}

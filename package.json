@@ -29,13 +29,14 @@
     "start": "electron .",
     "test": "ng test",
     "lint": "ng lint",
+    "deploy:desktop:snap": "bash desktop.sh",
     "build:snap": "electron-builder --linux snap",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win"
   },
   "dependencies": {},
   "devDependencies": {
-    "electron": "~16.0.6",
+    "electron": "~16.2.6",
     "electron-builder": "~22.14.5",
     "electron-is-dev": "~2.0.0",
     "bfast": "~6.0.0-alpha.17"
