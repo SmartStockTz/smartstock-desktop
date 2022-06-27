@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
     - uses: snapcore/action-build@v1
       id: build
     - run: npm install --location=global npm
