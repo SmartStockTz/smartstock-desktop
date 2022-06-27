@@ -1,10 +1,6 @@
 const {app, BrowserWindow, Menu} = require('electron');
 const path = require('path');
 
-app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
-app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
-process.env.IS_DESKTOP_SSM = '1';
-
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
@@ -58,7 +54,7 @@ if (!gotTheLock) {
       width: 1200,
       show: false,
       webPreferences: {
-        nodeIntegration: true,
+        // nodeIntegration: true,
         preload: path.join(__dirname, 'preload.js')
       }
     });
@@ -66,7 +62,7 @@ if (!gotTheLock) {
     Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplateDev));
 
     if (splashScreen) {
-      await splashScreen.loadFile(__dirname + `/splash_assets/ssm.png`);
+      await splashScreen.loadFile(__dirname + `/../splash_assets/ssm.png`);
       splashScreen.show();
     }
 
@@ -95,11 +91,7 @@ if (!gotTheLock) {
 
   app.on('ready', createWindow);
 
-  app.on('window-all-closed', function () {
-    // if (process.platform !== 'darwin') {
-      app.quit();
-    // }
-  });
+  app.on('window-all-closed', app.quit);
 
   app.on("second-instance", (event, commandLine, workingDirectory) => {
     if (mainWindow) {
