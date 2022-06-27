@@ -16,9 +16,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - name: Install and build window package
-        run: |
-          npm install -g npm
-          npm install -f
-          npm run build:mac
-          node upload.mac.js
+      - name: Install and build window package 
+      - run: npm install --location=global npm
+      - run: npm install -f
+      - run: npm run build:mac
+      - run: node upload.mac.js

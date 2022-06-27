@@ -21,8 +21,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Install and build window package
-        run: |
-          npm install -g npm
-          npm install -f
-          npm run build:win
-          node upload.win.js
+      - run: npm install --location=global npm
+      - run: npm install -f
+      - run: npm run build:win
+      - run: node upload.win.js
