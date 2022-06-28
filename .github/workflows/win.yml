@@ -4,6 +4,9 @@ on:
   release:
     types:
       - published
+  push:
+   branch:
+    - main
 
 env:
   GRT: ${{ secrets.GITHUB_TOKEN }}
