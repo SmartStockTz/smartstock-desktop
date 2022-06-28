@@ -25,9 +25,10 @@ jobs:
       with:
         snapcraft_token: ${{ secrets.STORE_LOGIN }}
         skip_install: false
-    - run: npm install ---location=global npm
-    - run: npm install -f
-    - run: export PACKAGE_VERSION=${{ steps.pv.outputs.current-version }} && npm run deploy:desktop:snap
+    - run: npm install ---location=global yarn
+    - run: yarn install
+    - run: yarn build:snap
+    - run: snapcraft upload --release=stable,edge,beta dist/smartstock_${PACKAGE_VERSION}_amd64.snap
       env:
         PACKAGE_VERSION: ${{ steps.pv.outputs.current-version }}
         GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}

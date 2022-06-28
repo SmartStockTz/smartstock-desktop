@@ -29,7 +29,6 @@
     "start": "electron .",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy:desktop:snap": "bash desktop.sh",
     "build:snap": "electron-builder --linux snap",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win"
