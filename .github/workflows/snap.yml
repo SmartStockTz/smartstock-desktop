@@ -25,12 +25,10 @@ jobs:
       uses: martinbeentjes/npm-get-version-action@master
     - name: Install Snapcraft
       uses: samuelmeuli/action-snapcraft@v1
-      with:
-        snapcraft_token: ${{ secrets.STORE_LOGIN }}
-        skip_install: false
     - run: npm install ---location=global yarn
     - run: yarn install
     - run: yarn build:snap
+    - run: ls dist/smartstock_${PACKAGE_VERSION}_amd64.snap
     - run: snapcraft upload --release=stable,edge,beta dist/smartstock_${PACKAGE_VERSION}_amd64.snap
       env:
         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
@@ -38,3 +36,8 @@ jobs:
         GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GT: ${{ secrets.GITHUB_TOKEN }}
+
+
+        # with:
+        # snapcraft_token: ${{ secrets.STORE_LOGIN }}
+        # skip_install: false
