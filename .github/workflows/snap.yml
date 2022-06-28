@@ -4,6 +4,9 @@ on:
   release:
     types:
       - published
+  push:
+   branch:
+    - main
 
 jobs:
   build:
@@ -28,7 +31,7 @@ jobs:
     - run: npm install ---location=global yarn
     - run: yarn install
     - run: yarn build:snap
-    - run: bash snap-publish.sh
+    - run: snapcraft upload --release=stable,edge,beta **/*_amd64.snap
       env:
         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         PACKAGE_VERSION: ${{ steps.pv.outputs.current-version }}
