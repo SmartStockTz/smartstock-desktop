@@ -1,1 +1,1 @@
-snapcraft upload --release=stable,edge,beta dist/smartstock_${PACKAGE_VERSION}_amd64.snap
+snapcraft upload --release=stable,edge,beta **/*_amd64.snap

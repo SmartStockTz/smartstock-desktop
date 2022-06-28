@@ -21,5 +21,6 @@ if (Array.isArray(files) && files.length > 0) {
     console.error(reason);
     process.exit(-1)
   });
+}else {
+  throw new Error("NO BUILD TO PUBLISH");
 }
-throw new Error("NO BUILD TO PUBLISH");
