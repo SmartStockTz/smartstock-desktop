@@ -30,5 +30,8 @@ jobs:
     - run: yarn build:snap
     - run: snapcraft upload --release=stable,edge,beta dist/smartstock_${PACKAGE_VERSION}_amd64.snap
       env:
+        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         PACKAGE_VERSION: ${{ steps.pv.outputs.current-version }}
         GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GT: ${{ secrets.GITHUB_TOKEN }}

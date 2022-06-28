@@ -23,4 +23,13 @@ jobs:
       - run: npm install --location=global npm
       - run: npm install -f
       - run: npm run build:win
+        env:
+          GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GT: ${{ secrets.GITHUB_TOKEN }}
       - run: node upload.win.js
+        env:
+          GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GT: ${{ secrets.GITHUB_TOKEN }}
+        
