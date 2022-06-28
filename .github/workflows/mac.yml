@@ -6,7 +6,7 @@ on:
       - published
 env:
   GRT:  ${{ secrets.GITHUB_TOKEN }}
-  GT:  ${{ secrets.GT }}
+  GT:  ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     runs-on: macos-latest

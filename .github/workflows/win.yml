@@ -10,7 +10,9 @@ on:
 
 env:
   GRT: ${{ secrets.GITHUB_TOKEN }}
-  GT: ${{ secrets.GT }}
+  GT: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 defaults:
   run:
     shell: powershell
@@ -26,9 +28,5 @@ jobs:
       - run: npm install --location=global yarn
       - run: yarn install
       - run: yarn build:win
-        env:
-          GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GT: ${{ secrets.GITHUB_TOKEN }}
       - run: node upload.win.js
         

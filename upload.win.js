@@ -1,7 +1,8 @@
 const bfast = require('bfast');
 const pkg = require('./package.json');
-const {createReadStream} = require("fs");
-const {join} = require("path");
+const { createReadStream } = require("fs");
+const { join } = require("path");
+const glob = require("glob");
 
 bfast.init({
   applicationId: 'smartstock_lb',
