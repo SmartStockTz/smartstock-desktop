@@ -17,16 +17,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
     - uses: snapcore/action-build@v1
       id: build
     - run: npm install --location=global npm
     - run: npm install -f
     - name: get-npm-version
-
     - uses: martinbeentjes/npm-get-version-action@master
       id: pv
-      
     - uses: snapcore/action-publish@v1
     - run: npm install --location=global npm
     - run: npm install -f
