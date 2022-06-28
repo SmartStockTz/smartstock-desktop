@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - name: Install and build window package
       - run: npm install --location=global npm
       - run: npm install -f
       - run: npm run build:win
