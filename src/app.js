@@ -1,6 +1,5 @@
 const {app, BrowserWindow, Menu, shell} = require('electron');
 const path = require('path');
-const url = require("url");
 
 const gotTheLock = app.requestSingleInstanceLock();
 
@@ -85,7 +84,7 @@ if (!gotTheLock) {
         //   await mainWindow.loadURL('http://localhost:4200');
         // } else {
         // await mainWindow.loadURL('http://localhost:8080'); //.catch(console.log);
-         await mainWindow.loadURL('https://edge.smartstock.co.tz'); //.catch(console.log);
+        await mainWindow.loadURL('https://edge.smartstock.co.tz'); //.catch(console.log);
         // await mainWindow.loadFile(__dirname + '/public/index.html');
         // }
     }
