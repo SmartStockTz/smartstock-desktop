@@ -13,20 +13,27 @@ module.exports.handlePrinting = async (e, data, printer) => {
     bfast.init({
         applicationId: 't', projectId: 't', adapters: {
             cache: (config) => ({
-                set: ()=>({}),
-                get: ()=>({})
+                set: () => ({}),
+                get: () => ({})
             })
         }
-    },'t');
-    await bfast.functions('t').request('https://localhost:8080/print').post({
-        data: data,
-        id: Math.random().toString().replaceAll('.', '')
-    }, {
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'content-type': 'application/json'
-        }
-    });
+    }, 't');
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = '0';
+    try {
+        await bfast.functions('t').request('https://localhost:8080/print').post({
+            data: data,
+            id: Math.random().toString().replaceAll('.', '')
+        }, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'content-type': 'application/json'
+            }
+        });
+    } catch (e) {
+        throw e;
+    } finally {
+        process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = '1';
+    }
     return 'done printing';
     // throw new Error("no supported printer make sure you add one e.g EPSON-TM-T series")
 }
