@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - run: npm install --location=global npm
+      - run: rm package-lock.json
       - run: npm install -f
       - run: export GH_TOKEN=${{ secrets.GITHUB_TOKEN }} && npm run build:mac
       - run: export GH_TOKEN=${{ secrets.GITHUB_TOKEN }} && node upload.mac.js
