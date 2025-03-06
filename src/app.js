@@ -20,7 +20,7 @@ if (!gotTheLock) {
         {
             label: 'Privacy',
             click() {
-                require('electron').shell.openExternal('https://smartstock.co.tz/privacy').catch(_ => {
+                require('electron').shell.openExternal('https://smartstock-faas.bfast.mraba.co.tz/privacy').catch(_ => {
                 });
             },
         },
@@ -83,7 +83,7 @@ if (!gotTheLock) {
         //   await mainWindow.loadURL('http://localhost:4200');
         // } else {
         // await mainWindow.loadURL('http://localhost:8080'); //.catch(console.log);
-        await mainWindow.loadURL('https://smartstock.co.tz'); //.catch(console.log);
+        await mainWindow.loadURL('https://kanida.web.app'); //.catch(console.log);
         // await mainWindow.loadFile(__dirname + '/public/index.html');
         // }
     }
