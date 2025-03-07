@@ -5,11 +5,10 @@ const bfast = require('bfast');
  * @param {Electron.IpcMainInvokeEvent} e
  * @param {string} data
  */
-module.exports.handlePrinting = async (e, data, printer) => {
+module.exports.handlePrinting = async (e, data) => {
     if (!data || data === '') {
         throw new Error("Data is required");
     }
-    // console.log(data);
     bfast.init({
         applicationId: 't', projectId: 't', adapters: {
             cache: (config) => ({
@@ -35,7 +34,6 @@ module.exports.handlePrinting = async (e, data, printer) => {
         process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = '1';
     }
     return 'done printing';
-    // throw new Error("no supported printer make sure you add one e.g EPSON-TM-T series")
 }
 
 /**
@@ -43,7 +41,5 @@ module.exports.handlePrinting = async (e, data, printer) => {
  * @param {Electron.IpcMainInvokeEvent} e
  */
 module.exports.handlePrinters = async (e) => {
-    // const webContent = e.sender;
-    // return webContent.getPrinters().map(x=>x.name);
     return [];
 }

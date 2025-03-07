@@ -7,7 +7,9 @@
   "build": {
     "appId": "com.fahamutech.smartstock",
     "mac": {
-      "category": "public.app-category.Office"
+      "category": "public.app-category.Office",
+      "target": "dmg",
+      "identity": "joshua.mshana@nmbtz.com (6L6Y9N2K33)"
     },
     "linux": {
       "category": "Office"
@@ -23,6 +25,11 @@
           ]
         }
       ]
+    },
+    "extraMetadata": {
+      "env": {
+        "PYTHON_PATH": "/usr/local/bin/python3"
+      }
     }
   },
   "scripts": {

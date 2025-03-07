@@ -1,9 +1,6 @@
 name: Deploy Mac
 
 on:
-  push:
-    branches:
-      - main
   release:
     types:
       - published

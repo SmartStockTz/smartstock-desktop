@@ -59,7 +59,7 @@ if (!gotTheLock) {
         });
         Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplateDev));
         if (splashScreen) {
-            await splashScreen.loadFile(__dirname + `/../splash_assets/ssm.png`);
+            await splashScreen.loadFile(__dirname + `/../splash_assets/ic_launcher_foreground.png`);
             splashScreen.show();
         }
 
@@ -77,15 +77,8 @@ if (!gotTheLock) {
             if (handler.disposition === 'new-window') {
                 shell.openExternal(handler.url).catch(_ => ({}));
             }
-            // handler.preventDefault();
         });
-        // if (process.env.EA && process.env.EA.toString() === '1') {
-        //   await mainWindow.loadURL('http://localhost:4200');
-        // } else {
-        // await mainWindow.loadURL('http://localhost:8080'); //.catch(console.log);
-        await mainWindow.loadURL('https://kanida.web.app'); //.catch(console.log);
-        // await mainWindow.loadFile(__dirname + '/public/index.html');
-        // }
+        await mainWindow.loadURL('https://kanida.web.app');
     }
 
     app.whenReady().then(createWindow);
